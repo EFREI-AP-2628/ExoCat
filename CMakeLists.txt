@@ -1,16 +1,14 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 4.3)
+project(Minou)
 
-project(Cat LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-add_executable(Cat
-    main.cpp
-    Cat.cpp
-    AlleyCat.cpp
-    PersianCat.cpp
-    Siamese.cpp
-)
-
-target_include_directories(Cat PRIVATE include)
+add_executable(Minou main.cpp
+        Cat.cpp
+        Cat.h
+        SiameseCat.cpp
+        SiameseCat.h
+        PersianCat.cpp
+        PersianCat.h
+        AlleyCat.cpp
+        AlleyCat.h)
