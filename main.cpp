@@ -1,13 +1,16 @@
+#include <iostream>
 #include "AlleyCat.h"
 #include "PersianCat.h"
 #include "SiameseCat.h"
+#include "Cat.h"
 
-void main(){
-    Cat monChatDeGoutiere = AlleyCat("Hamid");
-    Cat monChatSiamois = SiameseCat("Michel");
-    Cat monChatPersan = PersianCat("Prince",'A');
+int main() {
+    AlleyCat monChatDeGoutiere("Hamid");
+    SiameseCat monChatSiamois("Michel");
+    PersianCat monChatPersan("Prince", 'A');
 
     monChatDeGoutiere.display();
     monChatPersan.display();
     monChatSiamois.display();
+    return 0;
 }

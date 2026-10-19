@@ -1,40 +1,44 @@
-#ifndef CAT_H_
-#define CAT_H_
+//
+// Created by johan on 19/10/2026.
+//
+
+#ifndef MINOU_CAT_H
+#define MINOU_CAT_H
 
 #include <string>
 
+
 class Cat {
-    private: 
+    private:
     static constexpr char DEFAULT_STATE = 'S';
-    static constexpr std::string DEFAULT_NAME = "Minou";
-    static unsigned int catCount = 0;
-    char state;
+    static constexpr auto DEFAULT_NAME = "Minou";
+    static inline int catCount = 0;
+    char state{};
     std::string name;
-    int numberOfLivesRemaining;
+    int numberOfLivesRemaining{NUMBER_OF_LIVES};
 
     protected:
-    std::string getEyesFromState(); 
-    Cat(std::string &name, char state );
-    Cat(std::string &name);
+    std::string getEyesFromState() const;
+    Cat(const std::string &name, char state);
+    Cat(const std::string &name);
     Cat(char state);
     Cat();
-    ~Cat();
+    virtual ~Cat();
 
     public:
-    const char getState();
-    const std::string getName();
-    void setName(std::string &name);
-
-    [[nodiscard]] unsigned int getNumberOfLivesRemaining();  
+    static constexpr int NUMBER_OF_LIVES = 9;
     [[nodiscard]] static int getCatCount();
+    [[nodiscard]] unsigned int getNumberOfLivesRemaining() const;
 
     void die();
     void sleep();
     void wakeUp();
     virtual void display() = 0;
-    
-    static constexpr int NUMBER_OF_LIVES = 9;
+
+    [[nodiscard]] std::string getName() const;
+    [[nodiscard]] char getState() const;
+    void setName(const std::string &name);
 };
 
 
-#endif // CAT_H_
+#endif //MINOU_CAT_H
